@@ -17,21 +17,27 @@ import com.github.rtoshiro.util.format.text.MaskTextWatcher;
 import  static com.example.skins.ui.activities.ConstatesActivities.CHAVE_PERSONAGEM;
 
 public class FormularioPersonagemActivity extends AppCompatActivity {
+        //criando as variaveis
+        //variaveis em formato string para alterar  o texto do cabeçario, static para não poder ser editado pelo usuário.
         private static final String TITULO_APPBAR_EDITAR_PERSONAGEM = "Editar o Personagem";
         private static final String TITULO_APPBAR_NOVO_PERSONAGEM = "Novo Personagem";
+        // Variáveis com campo de textos
         private EditText campoNome;
         private EditText campoNascimento;
         private EditText campoAltura;
+        // Variaveis das classes javas ja então criadas elas são: PersonagemDAO e Personagem.
         private final PersonagemDAO dao = new PersonagemDAO();
         private Personagem personagem;
-
+        
         @Override
+        //Cria um menu no cabeçario, menu feito no xml.
         public boolean onCreateOptionsMenu(Menu menu) {
             getMenuInflater().inflate(R.menu.activity_formulario_personagem_menu_salvar, menu);
             return super.onCreateOptionsMenu(menu);
         }
 
         @Override
+        // Sobrescreve o onOptionsItemSelected da classe pai, passa o id e retorna item.
         public boolean onOptionsItemSelected(@NonNull MenuItem item) {
             int itemId = item.getItemId();
             if (itemId == R.id.activity_formulario_personagem_menu_salvar){
@@ -41,14 +47,16 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         }
 
         @Override
+        // Sobrescreve o método onCreate, chama a primeira tela e alguns métodos nela.
         protected void onCreate(Bundle savedInstanceState){
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_formulario_personagem);
             inicializacaoCampos();
             //configuraBotaoSalvar();
             carregaPersonagem();
+            // checa se tem permissão
         }
-
+        // usando o metodo  que carrega os personagens ja criados 
         private void carregaPersonagem(){
             Intent dados = getIntent();
             if(dados.hasExtra(CHAVE_PERSONAGEM)){
@@ -60,12 +68,13 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
                 personagem = new Personagem();
             }
         }
+        // usando metodo que  passará os dados prenchidos para classe personagem
         private void preencheCampos() {
             campoNome.setText(personagem.getNome());
             campoAltura.setText(personagem.getAltura());
             campoNascimento.setText(personagem.getNascimento());
         }
-
+        //usando metodo que  finaliza e salva os dados
         private void finalizarFormulario() {
             preencherPersonagem();
             if(personagem.idValido())
@@ -77,6 +86,8 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
             }
             finish();
         }
+        // usando método que buscará os campos já criados no xml e atribuirá a eles as variáveis de campo de textos, formata os inputs de textos.
+
         private void inicializacaoCampos() {
             campoNome = findViewById(R.id.editText_nome);
             campoNascimento = findViewById(R.id.editText_nascimento);
@@ -90,7 +101,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
             MaskTextWatcher mtwNascimento = new MaskTextWatcher(campoAltura, smfNascimento);
             campoNascimento.addTextChangedListener(mtwNascimento);
         }
-
+         // usando o método que passa os dados inputados pelo usuário para a classe Personagem.
         private void preencherPersonagem() {
             String nome = campoNome.getText().toString();
             String nascimento = campoNascimento.getText().toString();
