@@ -14,6 +14,7 @@ import com.example.skins.dao.PersonagemDAO;
 import com.example.skins.model.Personagem;
 import com.github.rtoshiro.util.format.SimpleMaskFormatter;
 import com.github.rtoshiro.util.format.text.MaskTextWatcher;
+import  static com.example.skins.ui.activities.ConstatesActivities.CHAVE_PERSONAGEM;
 
 public class FormularioPersonagemActivity extends AppCompatActivity {
         private static final String TITULO_APPBAR_EDITAR_PERSONAGEM = "Editar o Personagem";
@@ -77,16 +78,16 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
             finish();
         }
         private void inicializacaoCampos() {
-            campoNome = findViewById(R.id.ediText_nome);
+            campoNome = findViewById(R.id.editText_nome);
             campoNascimento = findViewById(R.id.editText_nascimento);
             campoAltura = findViewById(R.id.editText_altura);
 
             SimpleMaskFormatter smfAltura = new SimpleMaskFormatter("N,NN");
-            MaskTextWatcher mtwAltura = new MaskTextWatcher(campoAltura, amtAltura);
+            MaskTextWatcher mtwAltura = new MaskTextWatcher(campoAltura, smfAltura);
             campoAltura.addTextChangedListener(mtwAltura);
 
             SimpleMaskFormatter smfNascimento =new SimpleMaskFormatter("NN/NN/NNNN");
-            MaskTextWatcher mtwNascimento = new MaskTextWatcher(campoAltura, smtNascimento);
+            MaskTextWatcher mtwNascimento = new MaskTextWatcher(campoAltura, smfNascimento);
             campoNascimento.addTextChangedListener(mtwNascimento);
         }
 

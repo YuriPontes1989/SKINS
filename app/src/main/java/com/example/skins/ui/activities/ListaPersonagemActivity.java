@@ -20,6 +20,8 @@ import com.example.skins.dao.PersonagemDAO;
 import com.example.skins.model.Personagem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import  static com.example.skins.ui.activities.ConstatesActivities.CHAVE_PERSONAGEM;
+
 public class ListaPersonagemActivity  extends AppCompatActivity {
     public static final String TITULO_APPBAR = "Lista de Personagens";
     private final PersonagemDAO dao = new PersonagemDAO();
@@ -72,7 +74,7 @@ public class ListaPersonagemActivity  extends AppCompatActivity {
     @Override
     public  boolean onContextItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if(itemId == R.id.activity_lista_personagem_menu_remover) {
+        if(itemId == R.id.Activity_lista_personagem_menu_remover) {
             new AlertDialog.Builder(this)
                     .setTitle("Removendo Personagem")
                     .setMessage("Tem Certeza que quer remover?")

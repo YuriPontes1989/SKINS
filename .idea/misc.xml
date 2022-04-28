@@ -3,16 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Yuri/WAYPOINT/SKINS/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2985" />
-        <entry key="..\:/Users/Yuri/WAYPOINT/SKINS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
-        <entry key="..\:/Users/Yuri/WAYPOINT/SKINS/app/src/main/res/layout/activity_formulario_personagem.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Yuri/WAYPOINT/SKINS/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
-        <entry key="..\:/Users/Yuri/WAYPOINT/SKINS/app/src/main/res/menu/activity_formulario_personagem_menu_salvar.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/Yuri/WAYPOINT/SKINS/app/src/main/res/menu/activity_lista_personagem_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/aluno/SKINS/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.253" />
         <entry key="..\:/Users/aluno/SKINS/app/src/main/res/drawable/ic_add_background.xml" value="0.253" />
         <entry key="..\:/Users/aluno/SKINS/app/src/main/res/drawable/ic_launcher_background.xml" value="0.253" />
         <entry key="..\:/Users/aluno/SKINS/app/src/main/res/layout/activity_formulario_personagem.xml" value="0.33469202898550726" />
+        <entry key="..\:/Users/aluno/SKINS/app/src/main/res/layout/activity_lista_personagem.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/aluno/SKINS/app/src/main/res/layout/activity_main.xml" value="0.33469202898550726" />
         <entry key="..\:/Users/aluno/SKINS/app/src/main/res/menu/activity_formulario_personagem_menu_salvar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/aluno/SKINS/app/src/main/res/menu/activity_lista_personagem_menu.xml" value="0.36666666666666664" />
