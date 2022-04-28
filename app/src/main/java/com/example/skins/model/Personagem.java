@@ -5,11 +5,12 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 
 public class Personagem implements Serializable {
+    // criando as variaveis  dos dados do personagem
     private String nome;
     private String nascimento;
     private String altura;
     private int id = 0;
-
+    // Método que irá areceber variáveis do mesmo tipo  já criadas para poder salva-las na classe
     public Personagem(String nome, String nascimento, String altura){
         this.nome = nome;
         this.nascimento = nascimento;
@@ -18,7 +19,7 @@ public class Personagem implements Serializable {
     public Personagem(){
 
     }
-
+    // Usando métodos que irá setar as variáveis que possam ser acessadas em outro código
     public void setNome(String nome) {this.nome = nome;}
 
     public void setNascimento(String nascimento) {this.nascimento = nascimento;}
