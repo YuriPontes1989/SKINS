@@ -23,10 +23,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import  static com.example.skins.ui.activities.ConstatesActivities.CHAVE_PERSONAGEM;
 
 public class ListaPersonagemActivity  extends AppCompatActivity {
+        // Definindo o titulo de barra de aplicativo como uma constante e definindo os demais atributos privados
     public static final String TITULO_APPBAR = "Lista de Personagens";
     private final PersonagemDAO dao = new PersonagemDAO();
     private ArrayAdapter<Personagem> adapter;
-
+    // sobrescrevendo o metodo oncreate,adicionado novos metodos ao metodo oncreate pai
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class ListaPersonagemActivity  extends AppCompatActivity {
         configuraFabNovoPersonagem();
         configuraLista();
     }
-
+    // definindo o metodo, que indica um botao para adicionar um novo personagem e adciona um clicklistener ao mesmo
     private void configuraFabNovoPersonagem() {
         FloatingActionButton botaoNovoPersoangem = findViewById(R.id.fab_add);
         botaoNovoPersoangem.setOnClickListener(new View.OnClickListener() {
@@ -44,33 +45,34 @@ public class ListaPersonagemActivity  extends AppCompatActivity {
             }
         });
     }
+    // define o metodo , que inicia a atividade de formulario atraves de uma intent
     private void abreFormulario() {
         startActivity(new Intent(this,FormularioPersonagemActivity.class));
     }
-
+    // sobrescrevendo o metodo em questão,adicionando ao metodo on resume pai o metodo atulizapersonagem
     @Override
     protected void onResume() {
         super.onResume();
         atualizaPersonagem();
     }
-
+    //define o metodo ataulizaPersonagem, que limpa o adapter e depois adiciona a eles todos os elemtentos da variavel dao, da classe do PersonagemDAO,uma constante
     private void atualizaPersonagem() {
         adapter.clear();
         adapter.addAll(dao.todos());
     }
-
+    // define o metodo remove, que remove o argumento da classe personagem da constate dao e do adaptador
     private void remove(Personagem personagem) {
         dao.remove(personagem);
         adapter.remove(personagem);
     }
-
+    // Sobrepoe o método onCreateContextMenu da classe pai infla o menu.
     @Override
     public void onCreateContextMenu(ContextMenu menu,View v, ContextMenu.ContextMenuInfo menuInfo){
         super.onCreateContextMenu(menu, v, menuInfo);
         //menu.add("Remover");
         getMenuInflater().inflate(R.menu.activity_lista_personagem_menu, menu);
     }
-
+    // Sobrepoe o método onContextItemSelected da classe pai e mostra opções quando um item for selecionado, como deseja remover? e a escolha do usuário sim/não
     @Override
     public  boolean onContextItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
@@ -91,14 +93,14 @@ public class ListaPersonagemActivity  extends AppCompatActivity {
         }
         return super.onContextItemSelected(item);
     }
-
+        // usando o  método que configura a lista e o visual e suas funcionalidades.
     private void configuraLista() {
         ListView listaDePersonagens = findViewById(R.id.activity_main_lista_personagem);
         configuraAdapter(listaDePersonagens);
         configuraItemPorClique(listaDePersonagens);
         registerForContextMenu(listaDePersonagens);
     }
-
+    // usando o método que possibilita clicar em um personagem e também editar ele
     private void configuraItemPorClique(ListView listaDePersonagens) {
         listaDePersonagens.setOnItemClickListener((new AdapterView.OnItemClickListener() {
             @Override
@@ -108,13 +110,13 @@ public class ListaPersonagemActivity  extends AppCompatActivity {
             }
         }));
     }
-
+    // método que ira abrir a edição do personagem.
     private void abreFormularioEditar(Personagem personagemEscolhido) {
         Intent vaiParaFormulario = new Intent(ListaPersonagemActivity.this,FormularioPersonagemActivity.class);
         vaiParaFormulario.putExtra(CHAVE_PERSONAGEM, personagemEscolhido);
         startActivity(vaiParaFormulario);
     }
-
+    //Usando o método que configura a lista com os personagens
     private void configuraAdapter(ListView listaDePersoangem) {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         listaDePersoangem.setAdapter(adapter);
