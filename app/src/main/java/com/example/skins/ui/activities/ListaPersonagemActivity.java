@@ -65,14 +65,14 @@ public class ListaPersonagemActivity  extends AppCompatActivity {
         dao.remove(personagem);
         adapter.remove(personagem);
     }
-    // Sobrepoe o método onCreateContextMenu da classe pai infla o menu.
+    // Sobrescreve o método onCreateContextMenu da classe pai infla o menu.
     @Override
     public void onCreateContextMenu(ContextMenu menu,View v, ContextMenu.ContextMenuInfo menuInfo){
         super.onCreateContextMenu(menu, v, menuInfo);
         //menu.add("Remover");
         getMenuInflater().inflate(R.menu.activity_lista_personagem_menu, menu);
     }
-    // Sobrepoe o método onContextItemSelected da classe pai e mostra opções quando um item for selecionado, como deseja remover? e a escolha do usuário sim/não
+    // Sobrescreve o método onContextItemSelected da classe pai e mostra opções quando um item for selecionado, como deseja remover? e a escolha do usuário sim/não
     @Override
     public  boolean onContextItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
